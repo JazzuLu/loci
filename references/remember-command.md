@@ -31,16 +31,18 @@ Before ANY write operation, check if `~/.loci/` exists. If not:
 2. Read `~/.loci/MAP.yml` — check if an existing category fits
 3. Parse the content for topic and key facts
 4. Generate a slug (lowercase, hyphens, e.g. `react-server-components`)
-5. Check if a similar memory already exists (scan MAP.yml keywords)
+5. Generate keywords: extract key terms + add synonyms/aliases/translations
+   (e.g. "wenshu" → also add `数据看板, BI, 报表, dashboard`)
+6. Check if a similar memory already exists (scan MAP.yml keywords)
    - If exists → update the existing leaf SKILL.md (append, don't overwrite)
    - If new + category exists → create leaf in that category
    - If new + **no category fits** → **put it in `inbox/`**
-6. Write the leaf SKILL.md (see template in `references/palace-template.md`)
-7. Update the category (or inbox) SKILL.md routing table
+7. Write the leaf SKILL.md (see template in `references/palace-template.md`)
+8. Update the category (or inbox) SKILL.md routing table
    Row format: `| {name} | {slug} | {keywords} | {YYYY-MM-DD} |`
    (matches the Category SKILL.md template in `references/palace-template.md`)
-8. Update `~/.loci/MAP.yml` (add entry with keywords + date)
-9. Confirm to user: "Stored in `~/.loci/{category}/{slug}/`"
+9. Update `~/.loci/MAP.yml` (add entry with keywords + date)
+10. Confirm to user: "Stored in `~/.loci/{category}/{slug}/`"
 
 ### Update an existing memory
 

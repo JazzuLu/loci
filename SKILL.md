@@ -7,7 +7,7 @@ description: >-
   project history, personal preferences, debugging solutions, or any previously
   stored knowledge. Triggers on: remember, recall, "last time", "we decided",
   "we learned", lookup, "do you remember", "what was", "how did we", note,
-  learned, history, preferences, knowledge.
+  learned, history, preferences, knowledge, 记住, 之前, 以前, 上次, 记得吗.
 ---
 
 # Loci — Memory Palace
@@ -16,9 +16,10 @@ This skill is the **engine**. User memories live in `~/.loci/` (the palace).
 
 ## Quick Start
 
-1. Read `~/.loci/MAP.yml` — scan keywords to locate a memory
-2. If MAP.yml has no match → `grep -rl "keyword" ~/.loci/`
-3. Read the matched leaf SKILL.md for full content
+1. Read `~/.loci/MAP.yml` — **check landmarks first** (high-priority memories)
+2. Scan keywords arrays to locate matching memories
+3. If no keyword match → `grep -rl "keyword" ~/.loci/` (full-text fallback)
+4. Read the matched leaf SKILL.md for full content
 
 If `~/.loci/` does not exist, the first `/loci remember` will create it.
 
