@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+import { remember } from "../commands/remember.js";
+import { recall } from "../commands/recall.js";
+import { sync } from "../commands/sync.js";
+import { status } from "../commands/status.js";
+
 const commands = ["remember", "recall", "sync", "status"] as const;
 type Command = (typeof commands)[number];
 
@@ -16,8 +21,8 @@ Commands:
 `);
 }
 
-function main(): void {
-  const [command] = process.argv.slice(2);
+async function main(): Promise<void> {
+  const [command, ...rest] = process.argv.slice(2);
 
   if (!command || command === "--help" || command === "-h") {
     usage();
@@ -30,8 +35,23 @@ function main(): void {
     process.exit(1);
   }
 
-  // Commands will be wired in Chunk 4
-  console.log(`loci ${command}: not yet implemented`);
+  switch (command as Command) {
+    case "remember":
+      await remember(rest);
+      break;
+    case "recall":
+      await recall(rest);
+      break;
+    case "sync":
+      await sync(rest);
+      break;
+    case "status":
+      await status();
+      break;
+  }
 }
 
-main();
+main().catch((err: unknown) => {
+  console.error("Error:", err instanceof Error ? err.message : err);
+  process.exit(1);
+});
