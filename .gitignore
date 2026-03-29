@@ -8,3 +8,11 @@ Thumbs.db
 *~
 .vscode/
 .idea/
+
+# Worktrees
+.worktrees/
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
